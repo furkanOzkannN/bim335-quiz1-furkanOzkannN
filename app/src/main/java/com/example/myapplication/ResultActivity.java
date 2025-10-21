@@ -20,18 +20,18 @@ public class ResultActivity extends AppCompatActivity {
         winnerTextView = findViewById(R.id.winnerTextView);
         resetGameButton = findViewById(R.id.resetGameButton);
 
-        // Kazanan ismini al
+        
         Intent intent = getIntent();
         String winnerName = intent.getStringExtra("WINNER_NAME");
 
-        // Kazananı göster
+        
         winnerTextView.setText(getString(R.string.winner_text, winnerName));
 
-        // Tekrar başla butonu
+       
         resetGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // MainActivity'ye geri dön
+                
                 finish();
             }
         });
