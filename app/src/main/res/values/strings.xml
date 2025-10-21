@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Oyun Skoru</string>
+    <string name="game_description">Bu heyecan verici oyunda iki oyuncu birbiriyle yarışır. <b>İlk 5 puana</b> ulaşan oyuncu <i>kazanır</i>!</string>
+    <string name="player1_hint">Oyuncu 1</string>
+    <string name="player2_hint">Oyuncu 2</string>
+    <string name="start_game">Yeni Oyuna Başla</string>
+    <string name="player_won">%s kazandı</string>
+    <string name="score_format">%d - %d</string>
+    <string name="winner_text">Kazanan: %s</string>
+    <string name="reset_game">Tekrar Başla</string>
+</resources>

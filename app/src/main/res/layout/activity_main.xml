@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <!-- Başlık -->
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎮 OYUN SKORU"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_white"
+                android:fontFamily="sans-serif-medium"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Oyun Resmi Kartı -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imageCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:layout_constraintTop_toBottomOf="@id/titleTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/gameImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/game_image"
+                        android:contentDescription="@string/app_name"/>
+
+                    <TextView
+                        android:id="@+id/gameDescriptionTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/game_description"
+                        android:textSize="15sp"
+                        android:textColor="@color/text_dark"
+                        android:padding="16dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Oyuncu Giriş Kartı -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/inputCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/transparent_white"
+                app:layout_constraintTop_toBottomOf="@id/imageCard"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Oyuncu 1 EditText -->
+                    <EditText
+                        android:id="@+id/editText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/player1_hint"
+                        android:textColorHint="#666666"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:background="@drawable/edittext_background"
+                        android:inputType="textPersonName"
+                        android:drawableStart="@android:drawable/ic_menu_myplaces"
+                        android:drawablePadding="12dp"
+                        android:drawableTint="#2196F3"/>
+
+                    <!-- Oyuncu 2 EditText -->
+                    <EditText
+                        android:id="@+id/editText2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/player2_hint"
+                        android:textColorHint="#666666"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:background="@drawable/edittext_background"
+                        android:inputType="textPersonName"
+                        android:layout_marginTop="12dp"
+                        android:drawableStart="@android:drawable/ic_menu_myplaces"
+                        android:drawablePadding="12dp"
+                        android:drawableTint="#1976D2"/>
+
+                    <!-- Yeni Oyuna Başla Butonu -->
+                    <Button
+                        android:id="@+id/startGameButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/start_game"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_dark"
+                        android:background="@drawable/button_rounded"
+                        android:layout_marginTop="20dp"
+                        android:elevation="4dp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- SKOR KARTI - GÖRÜNÜR HALE GETİRİLDİ -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/scoreCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/inputCard"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:visibility="visible">  <!-- BURADA DEĞİŞTİRİLDİ: gone → visible -->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SKOR"
+                        android:textSize="14sp"
+                        android:textColor="#999999"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/scoreTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 - 0"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:textColor="#2196F3"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Oyuncu Butonları -->
+            <LinearLayout
+                android:id="@+id/buttonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintTop_toBottomOf="@id/scoreCard"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+                <!-- Oyuncu 1 Butonu -->
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:text="Oyuncu 1"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:enabled="false"
+                    android:background="@drawable/button_player1"
+                    android:layout_marginEnd="8dp"
+                    android:elevation="6dp"/>
+
+                <!-- Oyuncu 2 Butonu -->
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:text="Oyuncu 2"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:enabled="false"
+                    android:background="@drawable/button_player2"
+                    android:layout_marginStart="8dp"
+                    android:elevation="6dp"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
